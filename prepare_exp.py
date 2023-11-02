@@ -150,14 +150,12 @@ def prepare_trial(trial_type, win, text_height, words_dist):
         raise Exception('Wrong trigger type')
 
     random.shuffle(words)
-    print(trial_type, text)
     last_color = color
     last_text = text if len(text) == 2 else [text]
     last_text_2 = stim_distr
 
     stim1 = visual.TextStim(win, color=color, text=words[0], height=text_height, pos=(0, words_dist/2))
     stim2 = visual.TextStim(win, color=color, text=words[1], height=text_height, pos=(0, -words_dist/2))
-    print({'trial_type': trial_type, 'text': words, 'color': color, 'stim': [stim1, stim2]})
     return {'trial_type': trial_type, 'text': words, 'color': color, 'stim': [stim1, stim2]}
 
 

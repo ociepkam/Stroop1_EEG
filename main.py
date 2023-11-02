@@ -87,23 +87,6 @@ def feedb(ans, true_key):
         show_info_2(win=win, info=feedb_msg, show_time=data['Feedb_time'])
 
 
-# doesn't work!!!!!!
-# def prepare_trial_info(trial):
-#     true_key = KEYS[trial['color']]
-#     reaction_time = -1
-#     if trial['trial_type'] == 'congruent_strong':
-#         triggers = TriggersCongruentStrong
-#     elif trial['trial_type'] == 'congruent_weak':
-#         triggers = TriggersCongruentWeak
-#     elif trial['trial_type'] == 'incongruent_strong':
-#         triggers = TriggersIncongruentStrong
-#     elif trial['trial_type'] == 'incongruent_weak':
-#         triggers = TriggersIncongruentWeak
-#     else:
-#         triggers = TriggersNeutral
-#     return true_key, reaction_time, triggers
-
-
 def abort_with_error(err):
     logging.critical(err)
     raise Exception(err)
@@ -111,17 +94,6 @@ def abort_with_error(err):
 
 # exp info
 data = load_config()
-
-# prepare eeg
-# if data['EEG']:
-#     try:
-#         import parallel
-#         EEG = parallel.Parallel()
-#         EEG.setData(0x00)
-#     except:
-#         raise Exception("Can't connect to EEG")
-# else:
-#     EEG = None
 
 
 # part info
