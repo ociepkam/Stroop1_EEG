@@ -1,0 +1,40 @@
+ophthalmic_procedure: False
+
+Training1_trials_congruent_strong: 0
+Training1_trials_congruent_weak: 0
+Training1_trials_incongruent_strong: 0
+Training1_trials_incongruent_strong_2: 0
+Training1_trials_incongruent_weak: 0
+Training1_trials_neutral: 10
+Training1_trials_neutral_2: 10
+
+Training2_trials_congruent_strong: 10
+Training2_trials_congruent_weak: 0
+Training2_trials_incongruent_strong: 5
+Training2_trials_incongruent_strong_2: 5
+Training2_trials_incongruent_weak: 0
+Training2_trials_neutral: 5
+Training2_trials_neutral_2: 5
+
+Training_Resp_time: 4
+Training_Wait_time: 1
+
+Number_of_blocks: 1
+Experiment_trials_congruent_strong: 100
+Experiment_trials_congruent_weak: 0
+Experiment_trials_incongruent_strong: 50
+Experiment_trials_incongruent_strong_2: 50
+Experiment_trials_incongruent_weak: 0
+Experiment_trials_neutral: 50
+Experiment_trials_neutral_2: 50
+
+Experiment_Resp_time: 3
+Experiment_Wait_time: 1
+
+Jitter: 1
+
+Fix_time: 1
+Feedb: True
+Feedb_time: 1
+
+words_dist: 40

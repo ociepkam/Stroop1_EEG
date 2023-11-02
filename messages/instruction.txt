@@ -1,0 +1,16 @@
+Teraz nastapi wlasciwa czesc testu, z krotka przerwa na odpoczynek.
+
+Pamietaj: rozpoznawaj wylacznie KOLOR slow, a zupelnie ignoruj tresc napisu.
+
+Naciskaj:
+<--insert-->
+
+Pamietaj, NIE MOZESZ czytac napisów i reagowac zgodnie z nimi.
+Rozpoznawaj wylacznie KOLORY!
+Np. jesli slowo "NIEBIESKI" bedzie wyswietlone w kolorze czerwonym,
+to musisz nacisnac klawisz odpowiadajacy za kolor czerwony (nie niebieski!).
+Po prostu ignoruj tresc napisow.
+
+W tej czesci testu nie bedzie juz informacji o pomylce.
+
+Nacisnij SPACJE, aby rozpoczac.
