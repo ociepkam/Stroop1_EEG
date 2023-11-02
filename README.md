@@ -6,7 +6,7 @@ Stroop1 pod EEG
 Dwa słowa oznaczające kolory (standardowe: czerwony, niebieski, zielony, brązowy) albo przymiotniki przestrzenne, jedno pod drugim. Cztery rodzaje triali (załóżmy, że kolor czcionki to niebieski):
 ```
 Niezgodne-bezWWI          Niezgodne-zWWI            Neutralne-bezWWI           Neutralne-zWWI             Zgodne
-ZIELONY                       ZIELONY                    DALEKA                   DALEKA                 NIEBIESKI                    
+ZIELONY                       ZIELONY                    DALEKA                   DALEKA                 NIEBIESKI
 ZIELONY                       CZERWONY                   DALEKA                   WYSOKA                 NIEBIESKI
 ```
 
