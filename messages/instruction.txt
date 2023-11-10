@@ -1,16 +1,32 @@
-Teraz nastapi wlasciwa czesc testu, z krotka przerwa na odpoczynek.
+﻿Teraz nastąpi główne zadanie z krótkimi przerwami na odpoczynek.
 
-Pamietaj: rozpoznawaj wylacznie KOLOR slow, a zupelnie ignoruj tresc napisu.
+
+Program będzie prezentował różne słowa, z których część będzie oznaczała kolory.
+Staraj się nie czytać tych słów i zupełnie ignoruj ich treść oraz wygląd.
+
+Rozpoznawaj wyłącznie KOLOR słów, dokładnie tak jak w treningu.
+
+
 
 Naciskaj:
+
 <--insert-->
 
-Pamietaj, NIE MOZESZ czytac napisów i reagowac zgodnie z nimi.
-Rozpoznawaj wylacznie KOLORY!
-Np. jesli slowo "NIEBIESKI" bedzie wyswietlone w kolorze czerwonym,
-to musisz nacisnac klawisz odpowiadajacy za kolor czerwony (nie niebieski!).
-Po prostu ignoruj tresc napisow.
 
-W tej czesci testu nie bedzie juz informacji o pomylce.
 
-Nacisnij SPACJE, aby rozpoczac.
+Pamiętaj, NIE MOŻESZ czytać słów i reagować zgodnie z ich znaczeniem.
+
+Rozpoznawaj wyłącznie KOLORY!
+
+Np. jeśli słowa będą wyświetlone w kolorze czerwonym, 
+
+to musisz nacisnąć klawisz odpowiadający za kolor czerwony.
+
+
+Po prostu ignoruj treść słów.
+ 
+W tej części testu nie będzie już informacji o pomyłce.
+
+
+
+Naciśnij SPACJĘ, aby rozpocząć.

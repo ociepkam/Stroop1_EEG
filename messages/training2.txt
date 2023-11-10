@@ -1,20 +1,23 @@
-﻿Teraz zaczyna sie druga czesc treningu, ktora jest trudniejsza niz poprzedna.
+﻿Teraz zaczyna się druga cześć treningu, która jest trudniejsza niż poprzednia.
 
-Tym razem beda sie wyswietlac napisy oznaczajace kolory (ZIELONY, CZERWONY itp.)
+Tym razem będą się wyświetlać dwa słowa, które mogą oznaczać kolory (np. ZIELONY) lub nie (np. DALEKA).
+Słowa będą prezentowane jedno pod drugim.
 
-Pamietaj: rozpoznawaj wylacznie KOLOR SLOW i zupelnie ignoruj tresc napisu.
+Tak jak poprzednio, rozpoznawaj wyłącznie KOLOR SŁÓW, a zupełnie ignoruj ich znaczenie i wygląd czcionki.
 
 Naciskaj:
 <--insert-->
 
-Staraj sie nie czytac napisow, tylko identyfikowac ich KOLOR.
-Rozpoznawaj wylacznie KOLORY!
+Nie czytaj słów, tylko identyfikuj ich KOLOR (słowa mogą w tym przeszkadzać).
+Rozpoznawaj wyłącznie KOLORY!
 
-Jesli slowo "NIEBIESKI" bedzie wyswietlone w kolorze czerwonym,
-to musisz nacisnac klawisz odpowiadajacy za kolor czerwony (nie niebieski!).
-Staraj się naciskac wlasciwy klawisz.
-Po kazdej probie pojawi sie informacja o poprawnosci wykonania zadania.
+Jeśli słowa będą wyświetlone w kolorze czerwonym,
+to musisz nacisnąć klawisz odpowiadający za kolor czerwony.
+Staraj się naciskać poprawny klawisz przypisany prezentowanemu kolorowi.
+Po każdej próbie pojawi się informacja o poprawności wykonania zadania.
 
-Staraj sie reagowac szybko i poprawnie!
+Staraj się reagować szybko i poprawnie!
 
-Teraz bedzie mozna potrenowac wykonanie testu. Aby rozpoczac, nacisnij SPACJE.
+Teraz będzie można potrenować wykonanie testu. Jeśli masz jakieś pytania/wątpliwości, poproś eskperymentatora.
+
+Aby rozpocząć, naciśnij SPACJĘ.
