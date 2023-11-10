@@ -1,20 +1,20 @@
-ophthalmic_procedure: False
+use_eeg: True
 
 Training1_trials_congruent_strong: 0
 Training1_trials_congruent_weak: 0
 Training1_trials_incongruent_strong: 0
 Training1_trials_incongruent_strong_2: 0
 Training1_trials_incongruent_weak: 0
-Training1_trials_neutral: 10
-Training1_trials_neutral_2: 10
+Training1_trials_neutral: 8
+Training1_trials_neutral_2: 8
 
-Training2_trials_congruent_strong: 10
+Training2_trials_congruent_strong: 8
 Training2_trials_congruent_weak: 0
-Training2_trials_incongruent_strong: 5
-Training2_trials_incongruent_strong_2: 5
+Training2_trials_incongruent_strong: 4
+Training2_trials_incongruent_strong_2: 4
 Training2_trials_incongruent_weak: 0
-Training2_trials_neutral: 5
-Training2_trials_neutral_2: 5
+Training2_trials_neutral: 4
+Training2_trials_neutral_2: 4
 
 Training_Resp_time: 4
 Training_Wait_time: 1

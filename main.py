@@ -4,14 +4,15 @@ import atexit
 import csv
 import numpy
 import random
+import time
 from os.path import join
 
 from psychopy import visual, event, logging, gui, core
 
-from code.ophthalmic_procedure import ophthalmic_procedure
 from code.check_exit import check_exit
 from code.load_data import read_text_from_file, load_config
-from code.triggers import *
+
+from code.triggers import TriggerHandler
 from misc.screen_misc import get_screen_res, get_frame_rate
 from prepare_exp import prepare_exp
 
@@ -25,8 +26,18 @@ RESULTS = [['EXP', 'TRIAL_TYPE', 'TEXT', 'COLOR', 'WAIT', 'RESPTIME', 'RT', 'TRU
 POSSIBLE_KEYS = ['z', 'x', 'n', 'm']
 LEFT_KEYS = POSSIBLE_KEYS[:2]
 RIGHT_KEYS = POSSIBLE_KEYS[2:]
-# TRIGGER_LIST = []
-# TRIGGER_NO = 1
+
+
+class TriggerTypes(object):
+    STIMULUS = 'stimulus'
+    ANSWER = 'answer'
+
+    @classmethod
+    def vals(cls):
+        return [value for name, value in vars(cls).items() if name.isupper()]
+
+
+TRIGGERS = TriggerHandler(TriggerTypes.vals(), trigger_params=['acc', 'stimulus'], trigger_time=0.003)
 
 
 @atexit.register
@@ -36,9 +47,7 @@ def save_beh_results():
         beh_writer = csv.writer(beh_file)
         beh_writer.writerows(RESULTS)
     logging.flush()
-    # with open(join('results', '{}_triggermap_{}.txt'.format(PART_ID, num)), 'w') as trigger_file:
-    #     trigger_writer = csv.writer(trigger_file)
-    #     trigger_writer.writerows(TRIGGER_LIST)
+    TRIGGERS.save_to_file(join('results', '{}_triggermap_{}.csv'.format(PART_ID, num)))
 
 
 def show_info(win, file_name, insert=''):
@@ -94,7 +103,8 @@ def abort_with_error(err):
 
 # exp info
 data = load_config()
-
+if data['use_eeg']:
+    TRIGGERS.connect_to_eeg()
 
 # part info
 info = {'Part_id': '', 'Part_age': '20', 'Part_sex': ['MALE', "FEMALE"]}
@@ -131,12 +141,6 @@ key_labes = visual.TextStim(win=win, text='{0}        {1}                    {2}
 resp_clock = core.Clock()
 
 
-# if data['ophthalmic_procedure']:
-#     frames_per_sec = get_frame_rate(win)
-#     TRIGGER_NO, TRIGGER_LIST = ophthalmic_procedure(win=win, port_eeg=EEG, frames_per_sec=frames_per_sec,
-#                                                     screen_res=SCREEN_RES, trigger_no=TRIGGER_NO,
-#                                                     triggers_list=TRIGGER_LIST)
-
 # ----------------------- Start Stroop ----------------------- #
 
 
@@ -146,7 +150,6 @@ for idx, block in enumerate(training_trials):
         # prepare trial
         true_key = KEYS[trial['color']]
         reaction_time = -1
-        # true_key, reaction_time, triggers = prepare_trial_info(trial)
 
         # show fix
         show_info_2(win=win, info=fixation, show_time=data['Fix_time'])
@@ -197,7 +200,8 @@ show_info(win, join('.', 'messages', 'instruction.txt'), insert=keys_mapping_tex
 for idx, block in enumerate(blocks):
     for trial in block:
         # prepare trial
-        # true_key, reaction_time, triggers = prepare_trial_info(trial)
+        TRIGGERS.set_curr_trial_start()
+	
         true_key = KEYS[trial['color']]
         reaction_time = -1
         jitter = random.random() * data['Jitter']
@@ -208,22 +212,19 @@ for idx, block in enumerate(blocks):
 
         # show problem
         event.clearEvents()
+        win.callOnFlip(TRIGGERS.send_trigger, TriggerTypes.STIMULUS)
         win.callOnFlip(resp_clock.reset)
         for stim in trial['stim']:
             stim.setAutoDraw(True)
         key_labes.setAutoDraw(True)
         win.flip()
-        # if data['NIRS']:
-        #     NIRS.activate_line(triggers.ProblemAppear)
-        # TRIGGER_NO = send_trigger_eeg(TRIGGER_NO, EEG)
+
 
         while resp_clock.getTime() < data['Experiment_Resp_time']:
             key = event.getKeys(keyList=KEYS.values())
             if key:
                 reaction_time = resp_clock.getTime()
-                # if data['NIRS']:
-                #     NIRS.activate_line(triggers.ParticipantReact)
-                # TRIGGER_NO = send_trigger_eeg(TRIGGER_NO, EEG)
+                TRIGGERS.send_trigger(TriggerTypes.ANSWER)
                 break
             check_exit()
             win.flip()
@@ -237,19 +238,14 @@ for idx, block in enumerate(blocks):
             ans = key[0]
         else:
             ans = '-'
-
+        acc = ans == true_key
         RESULTS.append(
             ['experiment', trial['trial_type'], trial['text'], trial['color'], data['Experiment_Wait_time']+jitter,
-             data['Experiment_Resp_time'], reaction_time, true_key, ans, ans == true_key])
+             data['Experiment_Resp_time'], reaction_time, true_key, ans, acc])
         check_exit()
 
         # triggers
-        trig_info = "_{}_{}_{}_{}".format(trial['trial_type'], trial['text'], trial['color'], true_key)
-        # stim
-        # TRIGGER_LIST.append((str(TRIGGER_NO - 1), "STIM"+trig_info))
-        # # re
-        # if key:
-        #     TRIGGER_LIST.append((str(TRIGGER_NO), "RE"+trig_info+"_"+ans))
+        TRIGGERS.add_info_to_last_trigger(dict(acc=acc, stimulus=trial["trial_type"]), how_many=-1)
 
 
         # wait
